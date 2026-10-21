@@ -47,7 +47,7 @@ class ReleaseTests(unittest.TestCase):
         with self.assertRaises(FileExistsError):release.build(self.root,self.root/'dist')
 
     def test_private_paths_fail_closed_before_artifact_write(self):
-        (self.root/'README.md').write_text('C:'+ '/Users/example/private.txt')
+        (self.root/'README.md').write_text('C:'+ '/'+'Users/example/private.txt')
         with self.assertRaises(ValueError):release.build(self.root,self.root/'dist')
         self.assertFalse((self.root/'dist/jianying-codex-toolkit-v0.1.1.zip').exists())
 
