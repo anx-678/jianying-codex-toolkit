@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "project": {
+    "name": "合成测试-brand",
+    "scene": "brand",
+    "width": 640,
+    "height": 360,
+    "fps": "30"
+  },
+  "media": [
+    {
+      "id": "W",
+      "path": "wide.mp4",
+      "kind": "video",
+      "width": 640,
+      "height": 360,
+      "has_audio": true,
+      "duration_us": 6000000,
+      "credit": "FFmpeg synthetic test",
+      "rights": "generated test signal"
+    },
+    {
+      "id": "P",
+      "path": "portrait.mp4",
+      "kind": "video",
+      "width": 360,
+      "height": 640,
+      "has_audio": false,
+      "duration_us": 6000000,
+      "credit": "FFmpeg synthetic test",
+      "rights": "generated test signal"
+    },
+    {
+      "id": "I",
+      "path": "still.png",
+      "kind": "image",
+      "width": 640,
+      "height": 360,
+      "has_audio": false,
+      "duration_us": null,
+      "credit": "FFmpeg synthetic test",
+      "rights": "generated test signal"
+    },
+    {
+      "id": "A",
+      "path": "tone.wav",
+      "kind": "audio",
+      "width": null,
+      "height": null,
+      "has_audio": true,
+      "duration_us": 6000000,
+      "credit": "FFmpeg synthetic test",
+      "rights": "generated test signal"
+    }
+  ],
+  "clips": [
+    {
+      "id": "C1",
+      "media_id": "W",
+      "start_frame": 0,
+      "in_frame": 0,
+      "duration_frames": 30,
+      "fit": "contain",
+      "volume": 1,
+      "purpose": "建立场景"
+    },
+    {
+      "id": "C2",
+      "media_id": "P",
+      "start_frame": 30,
+      "in_frame": 0,
+      "duration_frames": 30,
+      "fit": "cover",
+      "volume": 1,
+      "purpose": "连续动作或观点"
+    },
+    {
+      "id": "C3",
+      "media_id": "I",
+      "start_frame": 60,
+      "in_frame": 0,
+      "duration_frames": 30,
+      "fit": "contain",
+      "volume": 1,
+      "purpose": "收束"
+    }
+  ],
+  "titles": [
+    {
+      "text": "Synthetic demo / brand",
+      "start_frame": 0,
+      "duration_frames": 90
+    }
+  ],
+  "audio": [
+    {
+      "media_id": "A",
+      "start_frame": 0,
+      "in_frame": 0,
+      "duration_frames": 90,
+      "volume": 0.12,
+      "role": "music"
+    }
+  ],
+  "notes": "仅测试代码路径，正弦波不是正式配乐，测试图不是语义选片或真实对白验收"
+}

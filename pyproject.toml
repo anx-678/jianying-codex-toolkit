@@ -1,0 +1,17 @@
+[project]
+name = "jianying-codex-toolkit"
+version = "0.1.1"
+license = "MIT"
+readme = "README.md"
+description = "Local, scenario-aware editing plans, previews and basic Jianying drafts"
+requires-python = ">=3.11"
+dependencies = []
+
+[project.optional-dependencies]
+draft = ["pyJianYingDraft==0.3.0; sys_platform == 'win32'"]
+
+[dependency-groups]
+dev = ["pip>=25,<27"]
+
+[tool.uv]
+package = false

@@ -1,0 +1,97 @@
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Codex × 剪映通用工具包</title><style>
+    :root{--paper:#f5f3ed;--ink:#203129;--accent:#176547;--line:#c8d0c8;--muted:#4b5d52}*{box-sizing:border-box}body{margin:0;color:var(--ink);background:var(--paper);font:17px/1.85 system-ui,"Microsoft YaHei","PingFang SC",sans-serif}a{color:var(--accent);text-underline-offset:4px}a:focus-visible{outline:3px solid #ad4d20;outline-offset:4px}.layout{display:grid;grid-template-columns:240px minmax(0,1fr)}aside{position:sticky;top:0;height:100vh;padding:38px 25px;background:#e9ede5;border-right:1px solid var(--line)}.brand{font-size:22px;line-height:1.5;font-weight:700}nav{margin-top:30px}nav a{display:block;padding:12px 0;border-bottom:1px solid var(--line);text-decoration:none}.meta,footer{font-size:14px;color:var(--muted)}main{padding:54px 50px 80px;max-width:1080px;min-width:0}h1{font-size:42px;line-height:1.4;letter-spacing:-.02em;margin:20px 0}header p{max-width:36em;color:var(--muted)}h2{font-size:29px;line-height:1.5}h3{font-size:22px;margin-top:36px}section{margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}p,li{max-width:42em}li{margin:10px 0}.scroll{overflow:auto}table{border-collapse:collapse;min-width:640px;font-size:14px}td,th{vertical-align:top;text-align:left;border-bottom:1px solid var(--line);padding:14px;min-width:110px}th{background:#e9ede5}pre{overflow:auto;padding:20px;background:#e5eae3;font-size:13px;line-height:1.7}code{font-family:Consolas,monospace;overflow-wrap:anywhere}p code,li code{font-size:.9em;background:#e5eae3;padding:2px 4px}.back{font-size:14px;display:inline-block;margin-top:20px}.skip{position:absolute;top:-100px;left:15px;background:var(--ink);color:white;padding:10px}.skip:focus{top:10px}footer{margin-top:50px}
+    @media(max-width:800px){.layout{display:block}aside{position:static;height:auto;padding:24px;border-right:0;border-bottom:1px solid var(--line)}nav{display:grid;grid-template-columns:1fr 1fr;gap:0 20px;margin-top:18px}main{padding:30px 22px}h1{font-size:31px}h2{font-size:25px}body{font-size:16px}}
+    @media print{aside,.back,.skip{display:none}.layout{display:block}main{padding:0;max-width:none}body{background:white;font-size:11pt}section{break-before:page}pre{white-space:pre-wrap}.scroll{overflow:visible}table{min-width:0}td,th{min-width:0}}
+    </style></head><body id="top"><a class="skip" href="#start">跳到正文</a><div class="layout"><aside><div class="brand">Codex × 剪映<br>通用剪辑工具包</div><p class="meta">Anx Day 3 · v0.1.1<br>2026.10.21</p><nav aria-label="章节目录"><a href="#start">开始使用</a><a href="#learn">学习路线</a><a href="#scenes">六类场景</a><a href="#plan">剪辑计划</a><a href="#backends">平台与后端</a><a href="#revise">修改与审片</a><a href="#share">版本与发布</a></nav></aside><main><header><div class="meta">从一次实践，到多场景复用</div><h1>换一批素材，<br>也能从同一套方法开始。</h1><p>让场景决定剪法，用计划衔接判断与执行。包含可安装 Skill、本地工具、六种场景示例和可追溯的验证范围。</p><p><a href="docs/verification.json">查看实际测试范围</a> · <a href="skills/jianying-codex-toolkit/SKILL.md">阅读 Skill</a></p></header><section id="start"><h2>Codex × 剪映通用剪辑工具包</h2>
+<p>v0.1.1 · MIT · Python 3.11+</p>
+<p>从一个项目的剪辑经验出发，整理成“场景判断＋统一计划＋可执行工具＋原生验收”的工作流。面向活动纪实、产品演示、教程、访谈、品牌与生活混剪；不固定时长、画幅、歌曲或叙事顺序。</p>
+<h3>获取与安装</h3>
+<ul><li><a href="https://github.com/anx-678/jianying-codex-toolkit">GitHub 仓库</a></li><li><a href="https://github.com/anx-678/jianying-codex-toolkit/releases">版本与下载</a></li><li>完整工具包与独立 Skill 包分开发行；校验文件随 Release 提供。</li></ul>
+<pre><code>git clone https://github.com/anx-678/jianying-codex-toolkit.git
+cd jianying-codex-toolkit
+uv sync --locked
+uv run python toolkit.py doctor</code></pre>
+<h3>先选择使用方式</h3>
+<ul><li>普通使用者：打开 <code>开始使用.html</code>，直接把素材目录与目标交给 Codex，按安装好的 Skill 协作，不必先学命令。</li><li>需要复用的制作者：使用六种场景策略、项目简报和 JSON 计划，逐镜明确源区间、布局、声音与目的。</li><li>开发者：运行 CLI、测试与合成例子，按后端能力扩展。发布入口见下方仓库与Release。</li></ul>
+<h3>这版已经有的工具</h3>
+<div class="scroll"><table><thead><tr><th scope="col">命令</th><th scope="col">实际用途</th></tr></thead><tbody><tr><td>profiles</td><td>查看六场景的叙事、声音和连续性建议</td></tr><tr><td>doctor</td><td>报告运行环境与可用依赖，不代替剪映兼容检查</td></tr><tr><td>init</td><td>按明确画幅、fps 和场景创建空白项目简报与计划</td></tr><tr><td>inventory</td><td>只读素材索引；完整元数据使用 ffprobe 或显式选择 pymediainfo</td></tr><tr><td>validate</td><td>校验时间线、源区间、素材路径、布局和不支持字段</td></tr><tr><td>preview</td><td>FFmpeg 渲染基础剪辑、布局、标题与声音，生成程序预览</td></tr><tr><td>draft</td><td>Windows 基础剪映草稿，标题与独立音轨保持原生可编辑</td></tr><tr><td>review</td><td>生成离线 HTML 审片单，不自动宣布验收通过</td></tr></tbody></table></div>
+<p>核心只用 Python 3.11+ 标准库，预览另需 FFmpeg；Windows 草稿适配器另需锁定依赖。并非全自动剪辑器：语义选片、复杂效果、音乐实际听感、原生导出仍需 Codex 与操作者共同完成。没有自建 MCP 服务，不要求所有第三方工具先装一遍。</p>
+<h3>快速开始</h3>
+<p>仓库根目录运行；Windows 示例以 PowerShell 为准。Mac/Linux 将 <code>.venv/Scripts/python.exe</code> 改为 <code>.venv/bin/python</code>，并使用相同参数。</p>
+<pre><code>uv sync
+uv run python toolkit.py doctor
+uv run python toolkit.py profiles
+uv run python toolkit.py init --scene interview --name 访谈首剪 --width 1920 --height 1080 --fps 30 --out outputs/interview-v01
+uv run python toolkit.py inventory --media-root YOUR_MEDIA --out outputs/media.json --ffprobe YOUR_FFPROBE</code></pre>
+<p>Windows 已安装 draft 依赖时，也可用 <code>uv run --extra draft python toolkit.py inventory --media-root YOUR_MEDIA --out outputs/media.json --mediainfo</code> 复用其元数据读取库；无需再安装 ffprobe。其他系统需自行确认 MediaInfo 动态库可用。</p>
+<p>将 inventory 的素材项放入 plan.json 的 media，查看内容后补 clips、titles 和 audio。空白项目会被 validate 拒绝，因为尚未选片，不代表初始化失败。完整示例在 <code>examples/</code>；路径占位符应替换，不直接照抄运行。</p>
+<pre><code>uv run python toolkit.py validate YOUR_PLAN --media-root YOUR_MEDIA
+uv run python toolkit.py preview YOUR_PLAN --media-root YOUR_MEDIA --out outputs/preview-v01.mp4 --ffmpeg YOUR_FFMPEG
+uv run python toolkit.py review YOUR_PLAN --media-root YOUR_MEDIA --out outputs/review-v01.html</code></pre>
+<p>Windows 需要基础原生草稿时先 <code>uv sync --extra draft</code>，再运行 <code>uv run --extra draft python toolkit.py draft YOUR_PLAN --media-root YOUR_MEDIA --out outputs/draft-v01</code>。每次选择新的输出路径；不覆盖已有工程。草稿保留源文件绝对引用，不能只搬 JSON；原生打开、保存、导出另行验收。分数fps计划暂不进入原生适配器。</p>
+<h3>安装 Skill</h3>
+<p>Skill 文件夹 <code>skills/jianying-codex-toolkit</code> 是自包含的，内含脚本、场景与参考。完整复制到 Codex 用户技能目录下的同名新目录，保留原有技能；如目标已存在先比较版本，不覆盖。常见用户目录为 <code>~/.codex/skills</code>，具体按当前环境配置。安装后在新会话确认技能发现情况。</p>
+<p>调用示例：</p>
+<pre><code>使用 $jianying-codex-toolkit。
+素材在【目录】，这是一个【访谈/产品/教程等】视频。
+目标观众是【受众】，发在【平台】，交付【画幅与时长范围】。
+先看素材，选合适结构，保留必要原声，不套用上次项目的音乐。
+先做可审看的小样，再完成计划、预览和适用的剪映草稿。</code></pre>
+<h3>开发与验证</h3>
+<pre><code>uv run python -m unittest discover -s tests -v
+uv run python examples/make_demo.py --ffmpeg YOUR_FFMPEG --out demo-generated
+uv run python toolkit.py validate demo-generated/interview.json --media-root demo-generated
+uv run python toolkit.py preview demo-generated/interview.json --media-root demo-generated --out outputs/interview.mp4 --ffmpeg YOUR_FFMPEG
+uv run python tools/build_docs.py</code></pre>
+<p>例子是自生成测试画面和正弦波，不是客户媒体或正式配乐，不验证真实对白语义与审美。测试记录见 <code>docs/verification.json</code>，开发依赖、CI配置与本机真实运行分开说明。</p>
+<h3>目录与扩展</h3>
+<p>Skill 是决策入口，scripts 是执行核心，assets 是场景和简报，references 是按需知识；examples 是六场景计划与合成生成器，tests 是约束回归，docs 是学习及验证记录。</p>
+<p>扩展场景可修改 scenes.json 与相应判断文档。扩展后端应显式声明能力，将统一计划映射到工具参数，保留未支持字段的错误，添加代表性测试。复杂剪映效果、第三方 MCP 和自动导出应独立适配，不把一次旧工程成功扩展为通用兼容承诺。</p>
+<h3>分享范围</h3>
+<p>不含客户媒体、歌曲、个人路径或第三方程序。原创代码与文档采用 [MIT](LICENSE)，第三方依赖见 [说明](THIRD_PARTY_NOTICES.md)。</p>
+<p>贡献、问题反馈和后续维护见 [CONTRIBUTING](CONTRIBUTING.md) 与 [发布流程](docs/releasing.md)。</p><a class="back" href="#top">回到目录</a></section><section id="learn"><h2>从单项目经验到通用工具</h2>
+<h3>泛化的核心是可变的判断</h3>
+<p>通用不等于用同一套开头、音乐和品牌结尾处理所有素材。真正可以复用的是目标简报、素材索引、镜头目的、统一计划、验证与交接方式；需要因场景改变的是叙事结构、信息停留、原声优先级、构图和收尾。</p>
+<p>访谈先剪观点和上下文；教程先保证步骤完整；产品先让观众看懂输入、操作和结果；旅行可以围绕地点或情绪。活动纪实的“合作与品牌”只是其中一种。</p>
+<h3>学习路线</h3>
+<p>先读场景决策，选自己常做的一类；用简报确定一句话目标。整理约十条有明确作用的素材，保留原版。先做一个覆盖目标画幅、声音、标题和复杂边界的小样，再扩大到全片。</p>
+<p>不以装了多少 MCP 衡量进展。能解释为什么选一镜、为什么在这里切，以及修改后如何验证，才是可复用能力。</p>
+<h3>下次现场带什么回来</h3>
+<p>每个主题至少保留环境、完整事件或任务、主体中景、关键细节、结果、人物关系、干净原声和可收尾镜头。操作前后适当停顿，避免一边录一边寻找构图。界面优先干净录屏；画面拍屏作为现场关系补充。</p>
+<p>访谈保留连续主机位、可用人声和相关B-roll；教程保留每个依赖步骤、真实反馈与容易出错处；旅行保留地点建立、方向桥接和自然声。可补拍的标记为计划，已有素材不移动、不改名破坏工程引用。</p>
+<h3>音乐与转场怎样迁移</h3>
+<p>按目标确定人声、自然声和音乐的优先关系。固定曲目按实际版本试听，再找完整段落与收束；未定曲目先做不依赖它的结构。音频起音、BPM 和能量只能找候选，不能替代听感。</p>
+<p>先让镜头内容相接，再处理方向、主体位置与节奏。叠化可表达时间或柔和过渡，但不是万能答案。教程与访谈尤其不应为了音乐卡点改变操作条件或人物意思。</p>
+<h3>修改与交接</h3>
+<p>用时间点、具体问题和期望结果记录反馈，每轮集中修正最明显问题。多画幅分别验收；保留源媒体、计划、原生工程、预览及音源说明。预合成内容明确内部不能拆编辑。</p>
+<p>实际用过与准备支持分开：本版核心代码和合成计划可以运行；Mac 真机、实际听感、剪映新草稿打开及原生导出需要独立证据。过去案例的导出成功不直接覆盖新适配器。</p><a class="back" href="#top">回到目录</a></section><section id="scenes"><h2>多场景决策</h2>
+<p>场景是选片与审片依据，不是自动套模板。混合项目选择一个主目标，再组合次要类型；不要让六种结构同时挤进一条片。</p>
+<div class="scroll"><table><thead><tr><th scope="col">场景</th><th scope="col">先整理什么</th><th scope="col">节奏与声音</th><th scope="col">重点审片</th></tr></thead><tbody><tr><td>活动纪实</td><td>关键事件、参与者、场合、实际结果</td><td>关键动作完整；重要发言与现场声保留</td><td>历史与当天分开；参与不等同成果归属</td></tr><tr><td>产品/软件</td><td>用户任务、输入、实际操作、输出</td><td>信息密度决定停留；界面文字需要读完</td><td>功能与结果对应；完整界面和局部同源</td></tr><tr><td>操作教程</td><td>前提、步骤依赖、判断反馈、错误纠正</td><td>讲解优先，可无音乐；关键步骤不抢拍</td><td>顺序正确、不跳过等待条件、不倒放伪造</td></tr><tr><td>访谈/分享</td><td>完整转写或人工语义摘要、观点与上下文</td><td>对白优先；按停顿剪；音乐不压人声</td><td>不改变观点；说话人、字幕、原声连续</td></tr><tr><td>品牌/故事</td><td>人物选择、价值与行动证据</td><td>依故事选择旁白、对白、自然声或音乐</td><td>不把宏大词语代替证据；品牌自然收束</td></tr><tr><td>旅行/生活混剪</td><td>地点、路线、主题、情绪弧线</td><td>可音乐驱动；保留标志性自然声</td><td>方向、色彩、地点与体验连续；结尾未必有品牌</td></tr></tbody></table></div>
+<p>访谈的 J/L cut 是音画切点不同，不能只加转场冒充。本包基础时间线支持连续主画面与独立音轨，复杂人声分轨需预先抽取或用剪映编辑，并保留同步依据。不能假定模型已听到音频。</p>
+<p>多画幅交付：复制已确认的源区间与镜头用途，修改项目尺寸和每镜布局，调整字幕与停留，再逐版检查。不要一键缩放导出后声称竖屏与横屏都已验收。</p>
+<p>素材准备最低覆盖：环境、主体全貌、完整动作/完整发言、细节、结果、可收尾镜头和干净声音。教程补步骤与反馈，访谈补连续主机位与独立人声，软件补无字幕录屏，旅行补地点桥接与自然声。</p><a class="back" href="#top">回到目录</a></section><section id="plan"><h2>计划格式 v1</h2>
+<p>JSON 使用 UTF-8。<code>schema_version</code> 为 1；<code>project</code> 包含 name、scene、width、height、fps，可附 audience、goal、platform。尺寸必须为 2–8192 内偶数；fps 可写 <code>30</code> 或 <code>30000/1001</code>。原生适配器暂限整数 fps。</p>
+<p><code>media</code> 来自 inventory，再补来源日期、credit 与 rights；不要以改元数据的方式绕过时长或过期校验。路径相对 <code>--media-root</code>，禁止盘符绝对路径、越界或指向根外的符号链接。迁移机器只改素材根目录并重新盘点核对，不改原始文件。mtime/大小变化要求复核，它们不代替内容哈希或身份鉴定。</p>
+<p><code>clips</code> 为顺序连续的主画面数组：id、media_id、start_frame、in_frame（默认0）、duration_frames、fit（contain/cover）、volume（默认1），可附 purpose 与 caption_note。所有帧值以项目 fps 为时间单位，源视频本身帧率可以不同。in_frame 表示源入点的时间，不是原视频第几个解码帧。静态图片 in_frame 为0，持续时长由计划指定。</p>
+<p><code>titles</code> 每项 text、start_frame、duration_frames；当前统一为底部居中白字，不支持自定义字号位置。重叠标题会叠放，需人工检查。<code>audio</code> 每项 media_id、start_frame、in_frame、duration_frames、volume、role（music/dialogue/ambient/effect），只引用独立音频文件，可重叠混音；没有自动闪避或峰值响度保证。需要侧链或 J/L cut 请用支持的后端。</p>
+<p>未知字段作为错误，不能把 transition、speed、crop 或 keyframes 填进计划并期待被忽略。v1 不是任意剪映效果的完整表达。可把复杂布局预合成为新媒体，再在原生编辑中保留外层字幕与音轨；交付说明哪些元素已烘焙。</p>
+<p>机器校验：连续主画面、源区间、正整数帧、标题/音轨边界、媒体存在与范围、尺寸、重复ID和不支持字段。不验证视觉内容、对白语义、实际听感、权利或剪映兼容性。旋转元数据与非方形像素先规范成代理再盘点，避免两后端方向不同。</p>
+<p>修改建议使用“成片时间＋问题＋预期结果”。可在 notes 记录音乐候选点、步骤依赖与来源；notes 不自动执行。源区间转微秒时，从起止帧分别计算后相减，避免累计舍入误差。</p><a class="back" href="#top">回到目录</a></section><section id="backends"><h2>后端与平台</h2>
+<div class="scroll"><table><thead><tr><th scope="col">能力</th><th scope="col">标准库核心</th><th scope="col">FFmpeg 预览</th><th scope="col">pyJianYingDraft 适配器</th><th scope="col">剪映原生界面</th></tr></thead><tbody><tr><td>本地盘点/计划校验</td><td>支持；完整元数据需 ffprobe 或显式 --mediainfo</td><td>消费已验证计划</td><td>消费同一计划</td><td>人工核对</td></tr><tr><td>基础连续剪辑</td><td>计划</td><td>支持</td><td>支持</td><td>支持</td></tr><tr><td>contain / cover</td><td>校验策略</td><td>黑底完整保留 / 居中裁切</td><td>按画幅缩放 / 居中放大</td><td>检查实际构图</td></tr><tr><td>原声/独立音轨</td><td>原声默认1</td><td>支持，静音源补静音</td><td>支持</td><td>实际试听</td></tr><tr><td>标题</td><td>定时文字</td><td>ASS 烧录</td><td>原生文本轨</td><td>可继续改字</td></tr><tr><td>转场/复杂分屏/关键帧</td><td>v1不执行</td><td>不执行</td><td>不执行</td><td>手工或外部可验证后端</td></tr><tr><td>输出 MP4</td><td>不支持</td><td>程序预览</td><td>不支持</td><td>实际原生导出</td></tr></tbody></table></div>
+<p>核心使用 Python 3.11+ 标准库。<code>inventory --mediainfo</code> 可显式复用已安装的 pymediainfo（Windows draft 依赖包含它）；其他系统需要其本地动态库可用，不自动安装。Windows、macOS、Linux 可执行核心命令，跨系统行为以各自测试为准。FFmpeg/ffprobe 是外部依赖，不随包分发；preview 需具备 libx264、AAC、subtitles/libass 与可用字体的构建。不能把程序预览当作剪映导出；标题字体、排版与原生工程未必逐像素一致。</p>
+<p>原生草稿适配器当前锁定 pyJianYingDraft 0.3.0，在 Windows 可测试。不会自动查找或写入用户剪映草稿首页，不注册工程，不控制鼠标，不自动导出。只写用户指定的全新输出目录，媒体仍为绝对引用；移动工程要保留源媒体并重新链接。先用剪映打开代表小样，检查画幅、字幕、原声、保存重开和导出，再用于正式项目。当前运行的剪映版本需单独记录，旧项目成功不证明本次适配器的新草稿已经打开。</p>
+<p>Mac 可先执行盘点、计划、校验、审片单与 FFmpeg 预览。当前草稿适配器对非 Windows 显式拒绝；不把 Windows 的依赖锁或应用控制当成 Mac 支持。</p>
+<p>可选研究接入，未捆绑、未安装、未宣称本包已兼容：</p>
+<ul><li><a href="https://github.com/GuanYixuan/pyJianYingDraft">pyJianYingDraft</a>：本包基础草稿后端的外部依赖，新版本及自动导出有自己的限制。</li><li><a href="https://github.com/Xanthus-Sanslab/jianying-ai-mcp">jianying-ai-mcp</a>：Windows 素材与草稿工具候选，接入前核对当前能力与基线。</li><li><a href="https://github.com/Capricornus-joe/jianying-local-mcp">jianying-local-mcp</a>：Mac 本地候选，按其兼容性与原生导出边界单独验证。</li></ul>
+<p>核对日期 2026-10-21。MCP 与 Skill 不是同一层：Skill 决策，CLI/MCP 执行，剪映验证原生结果。接入第三方时通过显式适配器映射并声明可执行字段；不按工具同名猜参数，不静默降级。</p><a class="back" href="#top">回到目录</a></section><section id="revise"><h2>常见修订与证据</h2>
+<ul><li>转场生硬：先看前后镜头要表达的联系，调整顺序、源入出点、主体位置与停留，再考虑效果。技术界面长叠化常导致不可读。</li><li>图片抖：隔离照片关键帧、源视频抖动、转场重影与重采样。先取消无必要的微幅缩放，确认当前版本再验证，不能用上一版检查覆盖新版。</li><li>混合画幅：先保住主体和信息关系；不要用拉伸填屏。完整界面＋同源同步局部可以预合成，注明内部不可拆编辑。</li><li>品牌或结束突兀：找动作、观点与音乐乐句的收束，检查前后亮度和遮罩连续。旅行、教程、访谈不必硬加企业署名式落版。</li><li>访谈碎：先保完整观点，再用相关 B-roll 覆盖画面切口；听到剪口再补环境底声，不拼造讲话意思。</li><li>教程看不懂：核对缺失前提、步骤依赖、完成反馈和等待条件；延长关键步骤优先于加动效。</li><li>音乐卡点：实际试听候选区间，标记展开、变化、人声句尾和结束。信号分析只提供候选，不独自证明重拍相位和听感。</li></ul>
+<p>每轮保留旧版，优先处理最影响理解的两三项。机器通过后继续实际画面和听感审片；没有新问题则停止无依据重渲染。依次记录草稿生成、原生打开、保存重开、原生导出、技术解码、视觉审片、听感审片和发布范围。</p><a class="back" href="#top">回到目录</a></section><section id="share"><h2>v0.1.1 — First public release</h2>
+<p>Codex × 剪映多场景本地工具包：Skill负责制作判断，CLI执行可核验操作，剪映负责原生编辑与导出。</p>
+<h3>下载哪个文件</h3>
+<ul><li><code>jianying-codex-toolkit-v0.1.1.zip</code>：完整源码、离线HTML手册、六场景示例、测试与维护工具。</li><li><code>jianying-codex-toolkit-skill-v0.1.1.zip</code>：自包含Skill，含脚本、策略、参考与MIT许可。解压到新技能目录，不覆盖现有安装。</li><li><code>SHA256SUMS.txt</code> 与 <code>release-manifest.json</code>：下载校验、版本和大小信息。</li></ul>
+<h3>能力与边界</h3>
+<p>提供六场景策略、素材盘点、时间线校验、基础预览和Windows基础草稿。原声默认保留，不支持的效果报错，输出不覆盖。</p>
+<p>复杂效果、自动语义选片、可靠J/L编辑、自动原生导出未实现。Mac原生剪映未实测；跨平台核心以CI实际结果为准。程序预览不冒充剪映导出，合成测试不代替真实素材审美或听感。</p>
+<h3>安装</h3>
+<p>完整包解压后运行 <code>uv sync --locked</code>、<code>uv run python toolkit.py doctor</code>。预览另需FFmpeg；Windows原生草稿使用 <code>uv sync --locked --extra draft</code>。</p>
+<p>原创代码与文档采用MIT。第三方依赖各遵守其许可。不含客户素材、歌曲、私人路径和第三方二进制。</p><a class="back" href="#top">回到目录</a></section><footer>离线正文不加载外部脚本、字体或客户媒体。外部项目链接需联网。MIT原创代码；原生兼容、画面与实际听感按证据单独验收。</footer></main></div></body></html>

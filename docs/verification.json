@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-21",
+  "system": "Windows",
+  "python": "3.12.10",
+  "environment": "project .venv, uv sync --extra draft",
+  "dependencies": {
+    "pyJianYingDraft": "0.3.0",
+    "pymediainfo": "7.0.1",
+    "Pillow": "13.0.0",
+    "numpy": "2.5.4"
+  },
+  "core_unit_tests": {
+    "passed": 18,
+    "failed": 0,
+    "command": "python -m unittest discover -s tests -v"
+  },
+  "synthetic_scenes": [
+    {
+      "scene": "event",
+      "frames": 90,
+      "width": 360,
+      "height": 640,
+      "full_decode": true,
+      "draft_generated": true,
+      "native_opened": false,
+      "native_exported": false
+    },
+    {
+      "scene": "product",
+      "frames": 90,
+      "width": 640,
+      "height": 360,
+      "full_decode": true,
+      "draft_generated": true,
+      "native_opened": false,
+      "native_exported": false
+    },
+    {
+      "scene": "tutorial",
+      "frames": 90,
+      "width": 640,
+      "height": 360,
+      "full_decode": true,
+      "draft_generated": true,
+      "native_opened": false,
+      "native_exported": false
+    },
+    {
+      "scene": "interview",
+      "frames": 90,
+      "width": 640,
+      "height": 360,
+      "full_decode": true,
+      "draft_generated": true,
+      "native_opened": false,
+      "native_exported": false
+    },
+    {
+      "scene": "brand",
+      "frames": 90,
+      "width": 640,
+      "height": 360,
+      "full_decode": true,
+      "draft_generated": true,
+      "native_opened": false,
+      "native_exported": false
+    },
+    {
+      "scene": "montage",
+      "frames": 90,
+      "width": 360,
+      "height": 640,
+      "full_decode": true,
+      "draft_generated": true,
+      "native_opened": false,
+      "native_exported": false
+    }
+  ],
+  "interview_signal_test": {
+    "voiced_rms": 0.062376256351293596,
+    "silent_rms": 0.0,
+    "meaning": "test-tone preservation only; not human listening"
+  },
+  "ffprobe_live": "not run: executable absent; inventory without probe tested",
+  "not_verified": [
+    "Mac native app",
+    "Linux execution",
+    "Jianying native open/save/export of these new drafts",
+    "real footage aesthetics",
+    "human listening",
+    "HTML browser rendering",
+    "external CI"
+  ],
+  "no_customer_media": true,
+  "mediainfo_inventory": {
+    "files": 4,
+    "probe_status": "all ok",
+    "real_metadata": true
+  }
+}

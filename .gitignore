@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+demo-generated/
+outputs/
+.DS_Store
+
+dist/
+docs/anx-day3-copy.md

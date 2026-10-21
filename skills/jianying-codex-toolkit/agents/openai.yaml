@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex × 剪映通用剪辑工具包"
+  short_description: "适配活动、产品、教程、访谈与混剪，提供素材盘点、时间线校验及基础草稿生成"
+  default_prompt: "使用 $jianying-codex-toolkit，根据我的素材与发布目标选择合适场景，检查环境并建立可复用剪辑计划，逐镜处理画幅与音画关系，完成可验证的预览或剪映草稿。"
